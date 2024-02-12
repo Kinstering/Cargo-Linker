@@ -1,0 +1,53 @@
+﻿<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:xamarinFormsMaps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+                  x:Class="CargoLinker.StartPage">
+
+    <!-- Содержимое для меню (Master) -->
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" BackgroundColor="#232323">
+            <ContentPage.Content>
+                <StackLayout Padding="10">
+                    <!-- Аватарка та ім'я -->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnStackLayoutTapped"/>
+                        </StackLayout.GestureRecognizers>
+
+                        <Image Source="menuUser.png" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" VerticalOptions="Center"/>
+                        <Label x:Name="username" Text="Username" FontFamily="KanitRegular" FontSize="17" FontAttributes="Bold" TextColor="White" VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <BoxView HeightRequest="1" BackgroundColor="#3C3C3C" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+
+                    <!-- Пункти меню -->
+                    <StackLayout>
+                        <Button Text="Trips" TextColor="White" ImageSource="menuTrips.png" FontSize="15" FontFamily="KanitRegular" BackgroundColor="#232323" CornerRadius="10" Margin="0, 5, 0, 0"/>
+                        <Button Text="Analytics" TextColor="White" ImageSource="menuCosts.png" FontFamily="KanitRegular" BackgroundColor="#232323" CornerRadius="10" Margin="0, 5, 0, 0"/>
+                        <Button Text="Truck" Clicked="GoToTruckPage" TextColor="White" ImageSource="menuTruck.png" FontFamily="KanitRegular" BackgroundColor="#232323" CornerRadius="10" Margin="0, 5, 0, 0"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#3C3C3C" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+                        <!-- Додайте інші пункти меню -->
+                    </StackLayout>
+                    <Button Text="Start Trip" Clicked="GoToStartTripPage" TextColor="White" ImageSource="startTrip.png" FontFamily="KanitRegular" BackgroundColor="#111111" CornerRadius="10" VerticalOptions="EndAndExpand"/>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <!-- Содержимое для детальной страницы (Detail) -->
+    <MasterDetailPage.Detail>
+        <ContentPage Title="Detail">
+            <ContentPage.Content>
+                <RelativeLayout>
+                    <xamarinFormsMaps:Map x:Name="customMap"
+                                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                                          IsShowingUser="True"
+                                          VerticalOptions="FillAndExpand" />
+
+                    <ImageButton x:Name="menuButton" Source="menu.png" Margin="15" BackgroundColor="Transparent" Clicked="OnMenuButtonClicked"/>
+                </RelativeLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

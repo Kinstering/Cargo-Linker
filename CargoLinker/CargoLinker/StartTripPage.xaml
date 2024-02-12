@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CargoLinker.StartTripPage"
+             BackgroundColor="#232323">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="20">
+                <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="10">
+                    <StackLayout>
+                        <Entry Placeholder="From" FontSize="15" FontFamily="KanitRegular"/>
+                        <Entry Placeholder="To" FontSize="15" FontFamily="KanitRegular"/>
+                        <Label Text="Enter the address of the start and end of the route" Padding="10"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button Text="Start trip"
+                    TextColor="#333333"
+                    FontFamily="KanitBold"
+                    CornerRadius="15"
+                    AbsoluteLayout.LayoutBounds="0.5,1,0.8,0.1" AbsoluteLayout.LayoutFlags="All"
+                    WidthRequest="120" HeightRequest="40"
+                    Margin="40, 40, 40, 20">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#FFFBE5" Offset="0" />
+                            <GradientStop Color="#FFF4BB" Offset="1" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
